@@ -1,0 +1,10 @@
+---
+# main task file for usernetes
+
+- name: init new server
+  include_tasks: init.yml
+  #  when: init == true
+
+- name: install webserver
+  include_tasks: webserver.yml
+  when: webserver == true

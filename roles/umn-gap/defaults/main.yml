@@ -1,0 +1,11 @@
+---
+# defaults for anisble-umngapfarmers
+
+# enabled roles
+init: false
+webserver: true
+database: true
+
+appuser: "gap"
+appuserdir: "/srv/gap"
+appdir: "{{ appuserdir }}/app"

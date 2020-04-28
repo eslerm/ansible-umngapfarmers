@@ -1,0 +1,20 @@
+---
+# This task installs admin tools
+
+- name: install epel repo
+  yum: name=epel-release state=latest
+
+- name: install dependency software
+  package:
+    name:
+      - vim
+      - git
+      - htop
+      - iftop
+      - screen
+      - gcc
+      - gcc-c++
+      - make
+
+- name: upgrade all packages
+  yum: name=* state=latest

@@ -1,0 +1,29 @@
+---
+
+- name: install dependency software
+  package:
+    name:
+      - npm
+      - httpd
+      - postgresql
+      - postgresql-server
+    state: latest
+        #      - postman
+
+- name: create gap user
+  user:
+    name: "{{ appuser }}"
+    comment: gap-app user
+    home: "{{ appuserdir }}"
+
+- name: git clone umngapfarmer/umn-gap
+  git:
+    repo: 'https://github.com/umngapfarmers/umn-gap'
+    dest: "{{ appdir }}"
+  become_user: "{{ appuser }}"
+
+#- name: install npm package.json
+#  npm:
+#    path: "{{ appdir }}"
+#  become_user: "{{ appuser }}"
+#  ignore_errors: yes
